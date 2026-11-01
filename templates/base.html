@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {% block title %}
+        Ключ.на.старт
+      {% endblock %}
+    </title>
+    <link rel="icon" href="{% static 'img/logo_icon.png' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body class="d-flex flex-column min-vh-100 bg-light">
+    <!-- Navbar: https://getbootstrap.com/docs/5.0/components/navbar/#supported-content -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
+          <img src="{% static 'img/logo_icon.png' %}" width="36" height="36" alt="" />
+          Ключ.на.старт
+        </a>
+        <!-- Бургер-меню: https://getbootstrap.com/docs/5.0/components/navbar/#toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navigation">
+          <div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <a class="nav-link" href="{% url 'home' %}">Автомобили</a>
+            {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'requests' %}">Мои заявки</a>
+              <a class="nav-link" href="{% url 'request_create' %}">Новая заявка</a>
+              {% if user.is_staff %}
+                <a class="nav-link" href="{% url 'admin:index' %}">Админка</a>
+              {% endif %}
+              <form method="post" action="{% url 'logout' %}" class="my-2 my-lg-0">
+                {% csrf_token %}
+                <button class="btn btn-outline-light btn-sm">Выйти</button>
+              </form>
+            {% else %}
+              <a class="nav-link" href="{% url 'login' %}">Вход</a>
+              <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4 flex-grow-1">
+      {% block content %}
+
+      {% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white-50 py-4 mt-3">
+      <div class="container d-flex flex-wrap justify-content-between gap-2">
+        <span>© <span id="current-year">{% now 'Y' %}</span> Ключ.на.старт</span>
+        <span>Ваш автомобиль для новых маршрутов</span>
+      </div>
+    </footer>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ title }} — Ключ.на.старт
+{% endblock %}
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <!-- Карточка: https://getbootstrap.com/docs/5.0/components/card/#body -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-4">{{ title }}</h1>
+          <!-- Форма: https://getbootstrap.com/docs/5.0/forms/overview/#overview -->
+          <form method="post">
+            {% csrf_token %}
+            {% include 'fields.html' %}
+            {% if next %}
+              <input type="hidden" name="next" value="{{ next }}" />
+            {% endif %}
+            <!-- Кнопки: https://getbootstrap.com/docs/5.0/components/buttons/ -->
+            <button class="btn btn-primary w-100">{{ button_text }}</button>
+          </form>
+          <p class="mt-3 mb-0 text-center">
+            {% if is_registration %}
+              Уже зарегистрированы? <a href="{% url 'login' %}">Войти</a>
+            {% else %}
+              Еще не зарегистрированы? <a href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

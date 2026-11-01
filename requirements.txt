@@ -1,0 +1,11 @@
+Django == 5.2.10
+psycopg2 == 2.9.11
+psycopg2-binary == 2.9.11 
+pillow == 12.1.0
+python-dotenv == 1.2.1
+django_extensions == 4.1
+pydot == 4.0.1
+graphviz == 0.21
+djangorestframework == 3.16.1
+django-cors-headers == 4.9.0 
+psycopg-binary == 3.3.2 

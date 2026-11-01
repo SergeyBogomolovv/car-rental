@@ -1,0 +1,62 @@
+.carousel-item img {
+  height: 380px;
+  object-fit: cover;
+}
+
+.car-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.car-card,
+.btn {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  .car-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px #0002 !important;
+  }
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+main {
+  animation: appear 0.3s ease-out;
+}
+
+.card-body,
+.review-text {
+  overflow-wrap: anywhere;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .carousel-item img {
+    height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

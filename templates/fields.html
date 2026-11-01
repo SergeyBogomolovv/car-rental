@@ -1,0 +1,18 @@
+<!-- Сообщения об ошибках: https://getbootstrap.com/docs/5.0/components/alerts/#examples -->
+{% for error in form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">{{ error }}</div>
+{% endfor %}
+<!-- Поля ввода и textarea: https://getbootstrap.com/docs/5.0/forms/form-control/ -->
+<!-- Выпадающий список: https://getbootstrap.com/docs/5.0/forms/select/ -->
+{% for field in form %}
+  <div class="mb-3">
+    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field }}
+    {% if field.help_text %}
+      <div class="form-text">{{ field.help_text|safe }}</div>
+    {% endif %}
+    {% for error in field.errors %}
+      <div class="text-danger small mt-1">{{ error }}</div>
+    {% endfor %}
+  </div>
+{% endfor %}
