@@ -1,3 +1,96 @@
+/* Локальные шрифты работают без интернета. */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Переопределение Bootstrap: https://getbootstrap.com/docs/5.0/customize/css-variables/#examples */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #212b36;
+  background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+
+small, .small, .form-text, footer {
+  font-size: 12px;
+  font-style: italic;
+}
+
+a, .btn-outline-primary {
+  color: #d9480f;
+}
+
+a:hover {
+  color: #212b36;
+}
+
+.btn-primary, .btn-primary:disabled, .btn-primary.disabled,
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+  color: #ffffff;
+  background-color: #d9480f;
+  border-color: #d9480f;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #ffffff;
+  background-color: #212b36;
+  border-color: #212b36;
+}
+
+.btn-outline-primary, .btn-outline-primary:disabled, .btn-outline-primary.disabled {
+  color: #d9480f;
+  border-color: #d9480f;
+}
+
+.btn-primary:focus, .btn-primary:active:focus,
+.btn-outline-primary:focus, .btn-outline-primary:active:focus,
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgb(217 72 15 / 25%);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #d9480f;
+}
+
+/* Утилиты Bootstrap используют !important, поэтому здесь он тоже нужен. */
+.bg-primary { background-color: #d9480f !important; }
+.bg-dark { background-color: #212b36 !important; }
+.bg-light { background-color: #f8f9fa !important; }
+.text-secondary, .text-muted { color: #6c757d !important; }
+
+.card, .alert-light {
+  background-color: #ffffff;
+  color: #212b36;
+}
+
 .carousel-item img {
   height: 380px;
   object-fit: cover;

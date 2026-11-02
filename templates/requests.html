@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
   <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
-    <h1 class="h2 mb-0">Мои заявки</h1>
+    <h1 class="mb-0">Мои заявки</h1>
     <a class="btn btn-primary" href="{% url 'request_create' %}">Новая заявка</a>
   </div>
   <!-- Карточки: https://getbootstrap.com/docs/5.0/components/card/#body -->
@@ -12,14 +12,14 @@
     <article class="card border-0 shadow-sm mb-3">
       <div class="card-body p-4">
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-          <h2 class="h5 mb-0">{{ rental.car }} <span class="text-secondary">· №{{ rental.pk }}</span></h2>
+          <h2 class="mb-0">{{ rental.car }} <span class="text-secondary">· №{{ rental.pk }}</span></h2>
           <!-- Значки статусов: https://getbootstrap.com/docs/5.0/components/badge/ -->
           {% if rental.status == 'new' %}
-            <span class="badge text-bg-secondary">{{ rental.get_status_display }}</span>
+            <span class="badge bg-secondary">{{ rental.get_status_display }}</span>
           {% elif rental.status == 'renting' %}
-            <span class="badge text-bg-warning">{{ rental.get_status_display }}</span>
+            <span class="badge bg-primary">{{ rental.get_status_display }}</span>
           {% else %}
-            <span class="badge text-bg-success">{{ rental.get_status_display }}</span>
+            <span class="badge bg-dark">{{ rental.get_status_display }}</span>
           {% endif %}
         </div>
         <p class="mb-1">
@@ -29,7 +29,7 @@
         <p class="text-secondary small">Создана: {{ rental.created_at|date:'d.m.Y H:i' }}</p>
         {% if rental.review %}
           <div class="bg-light rounded p-3">
-            <h3 class="h6">Ваш отзыв</h3>
+            <h3>Ваш отзыв</h3>
             <div class="review-text">{{ rental.review.text|linebreaksbr }}</div>
           </div>
         {% elif rental.status == 'completed' %}
