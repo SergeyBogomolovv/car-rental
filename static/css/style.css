@@ -44,51 +44,18 @@ small, .small, .form-text, footer {
   font-style: italic;
 }
 
-a, .btn-outline-primary {
+.bg-dark {
+  background-color: #212b36 !important;
+}
+
+.btn-primary, .btn-outline-primary, .bg-primary {
+  background-color: #d9480f !important;
+  border-color: #d9480f !important;
+  color: #fff !important;
+}
+
+a, a:hover {
   color: #d9480f;
-}
-
-a:hover {
-  color: #212b36;
-}
-
-.btn-primary, .btn-primary:disabled, .btn-primary.disabled,
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
-  color: #ffffff;
-  background-color: #d9480f;
-  border-color: #d9480f;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #ffffff;
-  background-color: #212b36;
-  border-color: #212b36;
-}
-
-.btn-outline-primary, .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-  color: #d9480f;
-  border-color: #d9480f;
-}
-
-.btn-primary:focus, .btn-primary:active:focus,
-.btn-outline-primary:focus, .btn-outline-primary:active:focus,
-.form-control:focus, .form-select:focus {
-  box-shadow: 0 0 0 0.25rem rgb(217 72 15 / 25%);
-}
-
-.form-control:focus, .form-select:focus {
-  border-color: #d9480f;
-}
-
-/* Утилиты Bootstrap используют !important, поэтому здесь он тоже нужен. */
-.bg-primary { background-color: #d9480f !important; }
-.bg-dark { background-color: #212b36 !important; }
-.bg-light { background-color: #f8f9fa !important; }
-.text-secondary, .text-muted { color: #6c757d !important; }
-
-.card, .alert-light {
-  background-color: #ffffff;
-  color: #212b36;
 }
 
 .carousel-item img {
